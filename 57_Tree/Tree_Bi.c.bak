@@ -1,0 +1,50 @@
+#include <windows.h>
+#include <stdio.h>
+#define True 1
+#define Flase 0
+#define OK 1
+#define Error 0
+typedef int TElemType;
+typedef int Status;
+typedef int BooLean;
+
+typedef struct BiTreeNode
+{
+	TElemType Data;
+	struct BiTreeNode *Lchild;
+	struct BiTreeNode *Rchild;
+} *BiTree;
+
+Status InitBiTree(BiTree T);		/*构造空二叉树*/
+Status DesstoryBiTree(BiTree T);	/*销毁二叉树*/
+Status CreatBiTree(BiTree T);	/*创建二叉树,以'#'表示空值*/
+BooLean BiTreeEmpty(BiTree T);	/*判断二叉树是否为空*/
+int BiTreeDeep(BiTree T);		/*返回二叉树的深度*/
+TElemType BiTreeRoot(BiTree T);	/*返回二叉树的根*/
+TElemType BiTreeNodeValue(BiTree p);	/*p指向T的某个节点，返回p所指向的节点的值*/
+Status Assign(BiTree T, TElemType value);	/*给p所值的节点赋值 value*/
+
+int main()
+{
+	BiTree T;
+	system("pause");
+	return 0;
+}
+
+Status InitBiTree(BiTree T)		/*构造空二叉树*/
+{
+	T = NULL;
+	return OK;
+}
+
+
+Status DesstoryBiTree(BiTreeNode  T)	/*销毁二叉树*/
+{
+	if (T)
+	{
+		if (T. Lchild)	DesstoryBiTree(T.Lchild);
+		if (T . Rchild)	DesstoryBiTree(T.Rchild);
+	}
+	free(T);
+	*T = NULL;
+}
